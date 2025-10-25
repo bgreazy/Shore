@@ -1,0 +1,43 @@
+# Build artifacts
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio cache
+.vs/
+
+# Secrets
+secrets.json
+*.key
+*.pfx
+.env
+
+# OS junk
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
+
+# Rider/JetBrains
+.idea/
+
+# Node/npm (if used)
+node_modules/
+
+# Python (if used)
+__pycache__/
+*.pyc
+
+# MAUI platform folders (optional)
+Platforms/Android/bin/
+Platforms/Android/obj/
+Platforms/iOS/bin/
+Platforms/iOS/obj/
+Platforms/MacCatalyst/bin/
+Platforms/MacCatalyst/obj/
+Platforms/Windows/bin/
+Platforms/Windows/obj/
