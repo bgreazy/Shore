@@ -7,7 +7,6 @@
     xmlns:views="clr-namespace:Sitting.Views"
     Title="Sitting">
 
-
     <!-- Login Page -->
     <ShellContent
         Title="Login"
@@ -19,5 +18,11 @@
         Title="Dashboard"
         ContentTemplate="{DataTemplate views:DashboardPage}"
         Route="DashboardPage" />
+
+    <!-- Worker Page -->
+    <ShellContent
+        Title="Worker"
+        ContentTemplate="{DataTemplate views:WorkerPage}"
+        Route="WorkerPage" />
 
 </Shell>

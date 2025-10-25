@@ -2,9 +2,9 @@
 
 namespace Sitting.Views
 {
-    public partial class DashboardPage : ContentPage
+    public partial class WorkerPage : ContentPage
     {
-        public DashboardPage()
+        public WorkerPage()
         {
             InitializeComponent();
         }

@@ -35,5 +35,9 @@
                TextColor="Red"
                FontSize="14"
                HorizontalOptions="Center" />
+      
+      <Button Text="Login" Clicked="OnLoginClicked" />
+      <Label x:Name="UidLabel" Text="UID will appear here" />
+      
     </VerticalStackLayout>
 </ContentPage>
