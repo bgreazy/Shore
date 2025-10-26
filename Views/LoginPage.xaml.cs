@@ -17,10 +17,19 @@ namespace Sitting.Views
 
         private async void OnLoginClicked(object sender, EventArgs e)
         {
-            var email = _config["Firebase:TestEmail"];
-            var password = _config["Firebase:TestPassword"];
-            var apiKey = _config["Firebase:ApiKey"];
+            // 🔹 Read input from the form
+            var email = EmailEntry.Text?.Trim();
+            var password = PasswordEntry.Text;
 
+            // 🔐 Validate input
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlert("Login Error", "Please enter both email and password.", "OK");
+                return;
+            }
+
+            // 🔹 Continue with Firebase login
+            var apiKey = _config["Firebase:ApiKey"];
             if (string.IsNullOrEmpty(apiKey))
             {
                 UidLabel.Text = "API key missing from configuration.";
@@ -52,35 +61,49 @@ namespace Sitting.Views
                     UidLabel.Text = "UID: " + uid;
 
                     // 🔥 Fetch role from Firebase Realtime Database
-                    var dbUrl = $"https://sittingapp-a59ae-default-rtdb.firebaseio.com/users/{uid}/role.json"; // Replace with your actual Firebase project ID
+                    var dbUrl = $"https://sittingapp-a59ae-default-rtdb.firebaseio.com/users/{uid}/role.json";
                     var roleResponse = await client.GetAsync(dbUrl);
-                    var roleJson = await roleResponse.Content.ReadAsStringAsync();
 
-                    using var roleDoc = JsonDocument.Parse(roleJson);
-                    var roleElement = roleDoc.RootElement;
+                    string role = null;
 
-                    string role = roleElement.ValueKind switch
+                    if (roleResponse.IsSuccessStatusCode)
                     {
-                        JsonValueKind.String => roleElement.GetString(),
-                        JsonValueKind.Object when roleElement.TryGetProperty("role", out var r) => r.GetString(),
-                        _ => null
-                    };
+                        var roleJson = await roleResponse.Content.ReadAsStringAsync();
+
+                        if (!string.IsNullOrWhiteSpace(roleJson) && roleJson != "null")
+                        {
+                            try
+                            {
+                                using var roleDoc = JsonDocument.Parse(roleJson);
+                                var root = roleDoc.RootElement;
+
+                                if (root.ValueKind == JsonValueKind.String)
+                                    role = root.GetString();
+                                else if (root.ValueKind == JsonValueKind.Object && root.TryGetProperty("role", out var r))
+                                    role = r.GetString();
+                            }
+                            catch (Exception ex)
+                            {
+                                UidLabel.Text += $"\nRole parse error: {ex.Message}";
+                            }
+                        }
+                    }
+
+                    System.Diagnostics.Debug.WriteLine($"Fetched role: {role ?? "null"}");
 
                     // 🔀 Route based on role
                     if (role == "admin")
                     {
-                        await Shell.Current.GoToAsync("//DashboardPage");
+                        await Shell.Current.GoToAsync("/DashboardPage");
                     }
                     else if (role == "worker")
                     {
-                        await Shell.Current.GoToAsync("//WorkerPage");
+                        await Shell.Current.GoToAsync("/WorkerPage");
                     }
                     else
                     {
-                        UidLabel.Text += $"\nUnknown role: {role}";
+                        await DisplayAlert("Login Error", "User role not found or invalid. Please check Firebase.", "OK");
                     }
-
-                    System.Diagnostics.Debug.WriteLine("UID: " + uid);
                 }
                 catch (Exception ex)
                 {

@@ -33,6 +33,9 @@
       
         <Button Text="Login" Clicked="OnLoginClicked" />
         <Label x:Name="UidLabel" Text="UID will appear here" />
-      
+
+
+        <Entry x:Name="EmailEntry" Placeholder="Email" />
+        <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" />
     </VerticalStackLayout>
 </ContentPage>

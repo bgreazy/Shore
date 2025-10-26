@@ -22,9 +22,18 @@
     <Button Text="View Workers" Clicked="OnViewWorkersClicked" />
     <Button Text="Assign Task" Clicked="OnAssignTaskClicked" />
     <Button Text="View Logs" Clicked="OnViewLogsClicked" />
+      
+    <Button
+        Text="Create New Task"
+        Clicked="OnCreateTaskClicked"
+        Style="{StaticResource PrimaryButtonStyle}" />
 
+    <Button
+        Text="View All Tasks"
+        Clicked="OnViewTasksClicked"
+        Style="{StaticResource PrimaryButtonStyle}" />
 
-    <!--<BoxView HeightRequest="2" BackgroundColor="Gray" />
+        <!--<BoxView HeightRequest="2" BackgroundColor="Gray" />
     <Label Text="(Admin tools will appear here)" FontSize="14" HorizontalOptions="Center" />-->
   </VerticalStackLayout>
 

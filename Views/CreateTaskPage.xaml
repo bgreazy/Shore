@@ -1,0 +1,30 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sitting.Views.CreateTaskPage"
+             Title="Create Task"
+             Shell.NavBarIsVisible="True">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <Entry x:Name="TitleEntry" Placeholder="Task Title" />
+            <Editor x:Name="DescriptionEditor" Placeholder="Task Description" AutoSize="TextChanges" />
+
+            <Label Text="Start Time" />
+            <DatePicker x:Name="StartDatePicker" />
+            <TimePicker x:Name="StartTimePicker" />
+
+            <Label Text="End Time" />
+            <DatePicker x:Name="EndDatePicker" />
+            <TimePicker x:Name="EndTimePicker" />
+
+            <Button Text="Create Task" Clicked="OnCreateTaskClicked" />
+
+            <Button
+                Text=" Back"
+                Clicked="OnBackClicked"
+                Style="{StaticResource PrimaryButtonStyle}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

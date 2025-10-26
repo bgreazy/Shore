@@ -30,5 +30,10 @@
         ContentTemplate="{DataTemplate views:ViewWorkersPage}"
         Route="ViewWorkersPage" />
 
+    <ShellContent
+        Title="Create Task"
+        ContentTemplate="{DataTemplate views:CreateTaskPage}"
+        Route="CreateTaskPage" />
+
 
 </Shell>

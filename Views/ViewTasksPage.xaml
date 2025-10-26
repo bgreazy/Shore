@@ -1,0 +1,29 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Sitting.Views.ViewTasksPage"
+             Title="View Tasks">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="12">
+
+            <ActivityIndicator x:Name="LoadingIndicator" IsRunning="True" IsVisible="True" />
+
+            <CollectionView x:Name="TasksCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" Padding="10" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="18" />
+                                <Label Text="{Binding Description}" FontSize="14" />
+                                <Label Text="{Binding StartTime}" FontSize="12" />
+                                <Label Text="{Binding EndTime}" FontSize="12" />
+                                <Label Text="{Binding Status}" FontSize="12" TextColor="DarkGreen" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

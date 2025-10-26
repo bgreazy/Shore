@@ -23,5 +23,14 @@ namespace Sitting.Views
         {
             await DisplayAlert("Admin Tool", "View Logs clicked.", "OK");
         }
+        private async void OnCreateTaskClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///CreateTaskPage");
+        }
+
+        private async void OnViewTasksClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("/ViewTasksPage");
+        }
     }
 }
