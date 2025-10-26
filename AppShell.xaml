@@ -25,4 +25,10 @@
         ContentTemplate="{DataTemplate views:WorkerPage}"
         Route="WorkerPage" />
 
+    <ShellContent
+        Title="View Workers"
+        ContentTemplate="{DataTemplate views:ViewWorkersPage}"
+        Route="ViewWorkersPage" />
+
+
 </Shell>

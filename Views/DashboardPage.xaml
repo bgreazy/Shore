@@ -18,8 +18,14 @@
         HorizontalOptions="Center" />
 
     <!-- Placeholder for future admin tools -->
-    <BoxView HeightRequest="2" BackgroundColor="Gray" />
-    <Label Text="(Admin tools will appear here)" FontSize="14" HorizontalOptions="Center" />
+    <!-- 🔧 Admin Tools -->
+    <Button Text="View Workers" Clicked="OnViewWorkersClicked" />
+    <Button Text="Assign Task" Clicked="OnAssignTaskClicked" />
+    <Button Text="View Logs" Clicked="OnViewLogsClicked" />
+
+
+    <!--<BoxView HeightRequest="2" BackgroundColor="Gray" />
+    <Label Text="(Admin tools will appear here)" FontSize="14" HorizontalOptions="Center" />-->
   </VerticalStackLayout>
 
 </ContentPage>

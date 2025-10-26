@@ -25,19 +25,14 @@
                IsPassword="True"
                ClearButtonVisibility="WhileEditing" />
 
-        <Button Text="Login"
-                Command="{Binding LoginCommand}"
-                BackgroundColor="#007ACC"
-                TextColor="White"
-                CornerRadius="8" />
 
         <Label Text="{Binding StatusMessage}"
                TextColor="Red"
                FontSize="14"
                HorizontalOptions="Center" />
       
-      <Button Text="Login" Clicked="OnLoginClicked" />
-      <Label x:Name="UidLabel" Text="UID will appear here" />
+        <Button Text="Login" Clicked="OnLoginClicked" />
+        <Label x:Name="UidLabel" Text="UID will appear here" />
       
     </VerticalStackLayout>
 </ContentPage>

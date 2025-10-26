@@ -8,5 +8,20 @@ namespace Sitting.Views
         {
             InitializeComponent();
         }
+
+        private async void OnViewWorkersClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("///ViewWorkersPage");
+        }
+
+        private async void OnAssignTaskClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Admin Tool", "Assign Task clicked.", "OK");
+        }
+
+        private async void OnViewLogsClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Admin Tool", "View Logs clicked.", "OK");
+        }
     }
 }
