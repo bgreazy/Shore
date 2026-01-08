@@ -13,11 +13,17 @@
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="LoginPage" />
 
-    <!-- Dashboard Page -->
+    <!-- Admin Dashboard -->
     <ShellContent
-        Title="Dashboard"
+        Title="Admin Dashboard"
         ContentTemplate="{DataTemplate views:DashboardPage}"
-        Route="DashboardPage" />
+        Route="AdminDashboard" />
+
+    <!-- Worker Dashboard --><!--
+    <ShellContent
+        Title="Worker Dashboard"
+        ContentTemplate="{DataTemplate views:WorkerDashboardPage}"
+        Route="WorkerDashboard" />-->
 
     <!-- Worker Page -->
     <ShellContent
@@ -34,6 +40,5 @@
         Title="Create Task"
         ContentTemplate="{DataTemplate views:CreateTaskPage}"
         Route="CreateTaskPage" />
-
 
 </Shell>
